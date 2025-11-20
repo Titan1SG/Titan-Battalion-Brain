@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      - TITAN_API_TOKEN=changeme
+    ports:
+      - "7860:7860"
+    volumes:
+      - ./backend/data:/app/data
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
